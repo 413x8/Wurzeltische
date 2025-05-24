@@ -432,7 +432,8 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive */
+
+
 
 .slider-container {
   max-width: 100%;
@@ -773,6 +774,7 @@ footer {
   .hero-box:nth-child(3) {
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%) !important;
   }
+
   .slider-overlay-text {
     display: none;
   }

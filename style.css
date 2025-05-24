@@ -673,11 +673,21 @@ footer {
 
 .carousel-wrapper {
   position: relative;
-  max-width: 90%;
-  margin: 2em auto;
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: row; /* Sicherstellen, dass links-rechts-Anordnung */
+  gap: 1em;
+  flex-wrap: nowrap;
 }
+
+.carousel-btn {
+  position: relative;
+  z-index: 5;
+  top: auto;
+  transform: none;
+}
+
 
 .carousel-window {
   overflow: hidden;

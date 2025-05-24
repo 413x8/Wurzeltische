@@ -433,21 +433,7 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .hero-gallery {
-    height: auto;
-  }
 
-  .hero-box {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .hero-box img {
-    height: auto;
-    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-  }
-}
 .slider-container {
   max-width: 100%;
   max-height: 80vh; /* auf 80% der Fensterhöhe begrenzen */

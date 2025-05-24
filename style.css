@@ -1,0 +1,791 @@
+/* Basis-Styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: #f0f0f0;
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom, #d8aa2c, #000000); /* gold → schwarz */
+  background-attachment: fixed;
+  transition: background 2s ease;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2 {
+  font-family: serif;
+  color: #2c1d0b;
+  margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn {
+  display: inline-block;
+  background: #5e3e1c;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1em;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #3e280f;
+}
+
+
+
+.scroll-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 1000;
+}
+
+.scroll-nav a {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #d4af37; /* edles Gold */
+  border-radius: 2px;
+  transition: background-color 0.3s, transform 0.3s;
+  opacity: 0.6;
+  
+}
+
+.scroll-nav a:hover,
+.scroll-nav a.active {
+  opacity: 1;
+  background-color: #fff;
+  transform: scaleX(1.5);
+  box-shadow: 0 0 10px #fff;
+}
+
+
+
+.branding {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: serif;
+  gap: 0.5em;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Lightbox */
+.lightbox-hidden {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+
+/* Hero-Bereich */
+.hero {
+  background: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* jetzt vertikale Zentrierung */
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em; /* Abstand zwischen den Boxen */
+  width: 100%;
+  height: 90vh;
+  max-width: 1200px;
+}
+
+
+
+
+.hero-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hero-box:hover img {
+  transform: scale(1.03);
+}
+
+/* Linkes großes Bild */
+.hero-box:nth-child(1) {
+  grid-row: 1 / span 2;
+  margin-right: 1em; /* Abstand zu rechten Bildern */
+  clip-path: polygon(
+    0% 15%,    /* oben links (niedrig) */
+    90% 5%,    /* oben rechts (nicht ganz oben) */
+    90% 95%,   /* unten rechts (nicht ganz unten) */
+    0% 85%     /* unten links (hoch) */
+  );
+}
+
+
+.hero-box .hover-logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none; /* verhindert Klick-Störungen */
+}
+
+.hero-box:hover .hover-logo {
+  opacity: 0.2; /* leicht sichtbar beim Hover */
+}
+
+
+
+/* Rechtes oberes Bild */
+.hero-box:nth-child(2) {
+  margin-bottom: 1em;
+  clip-path: polygon(
+    0% 10%,     /* oben links (niedrig) */
+    100% 0%,    /* oben rechts (hoch) */
+    100% 100%,
+    0% 100%
+  );
+}
+
+
+
+
+
+
+/* Rechtes unteres Bild */
+.hero-box:nth-child(3) {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,   /* unten rechts (hoch) */
+    0% 90%       /* unten links (niedrig) */
+  );
+}
+
+
+
+
+
+
+/* Overlay bleibt wie gehabt */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5em 1em;
+  color: #ffffff;
+  font-size: 1.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* für bessere Lesbarkeit */
+  z-index: 3;
+  pointer-events: none;
+  transition: font-size 0.3s ease, color 0.3s ease;
+  background: none; /* entfernt Hintergrund */
+}
+
+.hero-box:hover .overlay-text {
+  font-size: 2.1em;
+  color: #d4af37;
+}
+
+
+.hero-box .hover-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+  filter: grayscale(100%) brightness(2);
+}
+
+.hero-box:hover .hover-logo {
+  opacity: 0.15;
+}
+
+
+
+
+
+
+
+
+
+/* Sektionen */
+.section {
+  background-color: #111111;
+  padding: 4em 2em;
+}
+
+.full-width-img {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Galerie */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.gallery a {
+  display: block;
+  overflow: hidden;
+  border-radius: 1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 1em;
+}
+
+
+/* Kontaktformular */
+.kontaktformular {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.kontaktformular input,
+.kontaktformular textarea {
+  padding: 1em;
+  font-size: 1em;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.kontaktformular button {
+  background: #5e3e1c;
+  color: white;
+  padding: 1em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.kontaktformular button:hover {
+  background: #3e280f;
+}
+
+/* Footer */
+footer {
+  background: #000000;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  margin-top: 4em;
+  color: #ffffff;
+}
+
+#logo-loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+}
+
+.loader-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  animation: zoomIn 2s ease forwards;
+}
+
+.loader-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start oben */
+  z-index: 1;
+}
+
+.loader-ring circle {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.ring-bg {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.ring-progress {
+  stroke: #d4af37;
+  stroke-dasharray: 339.29; /* 2π × 54 */
+  stroke-dashoffset: 339.29;
+  animation: progressLoad 2s ease-in-out 2s forwards;
+}
+
+.loader-logo {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: 0;
+  animation: logoFadeIn 1s ease-in-out 0.5s forwards;
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes progressLoad {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* Scroll-Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.8s ease; /* vorher: 1s */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-gallery {
+    height: auto;
+  }
+
+  .hero-box {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-box img {
+    height: auto;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
+}
+.slider-container {
+  max-width: 100%;
+  max-height: 80vh; /* auf 80% der Fensterhöhe begrenzen */
+  aspect-ratio: 16 / 9; /* gleichmäßiges Seitenverhältnis */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  position: relative;
+  flex: 1; /* nimmt verfügbaren Platz ein */
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  border-radius: 1em;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em 0;
+  background: #111;
+}
+
+.nav-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444;
+  border: none;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-dot:hover {
+  background-color: #d4af37;
+}
+
+.nav-dot.active {
+  background-image: url("img/logo-icon.png");
+  background-color: transparent; /* kein weißer Hintergrund */
+  box-shadow: 0 0 10px #d4af37;
+  transform: scale(1.15);
+}
+
+.slider-overlay-text {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  z-index: 5;
+  max-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  font-family: serif;
+  backdrop-filter: blur(4px);
+}
+
+.slider-overlay-text h3 {
+  margin: 0 0 0.5em;
+  font-size: 1.5em;
+  color: #d4af37;
+}
+
+.slider-overlay-text p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+
+.kuenstler-preview {
+  flex-grow: 1;
+  min-height: 400px;       /* damit sie sichtbar größer wird */
+  max-height: 100%;        /* niemals größer als der Rest */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  padding: 1em;
+}
+
+
+.kuenstler-preview img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 1em;
+  transition: transform 0.3s ease;
+}
+
+
+
+.kuenstler-gallery-scroll {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 1em;
+  padding: 1em 0;
+  width: max-content;
+}
+
+.gallery-track img {
+  flex: 0 0 calc(100% / 3); /* exakt 3 Bilder sichtbar */
+  scroll-snap-align: center;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.8em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-track img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #d4af37;
+}
+.kuenstler-gallery-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.gallery-track {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-item {
+  scroll-snap-align: center;
+  flex: 0 0 33.3333%; /* exakt 3 Bilder sichtbar */
+  padding: 0 0.5em;
+  box-sizing: border-box;
+}
+.gallery-item-wrapper {
+  position: relative;
+}
+
+.gallery-item-wrapper:hover .gallery-caption {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #d4af37;
+  padding: 0.4em 0.8em;
+  border-radius: 0.5em;
+  font-size: 0.95em;
+  font-family: serif;
+  pointer-events: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 2;
+}
+
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.8em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #d4af37;
+}
+
+.kuenstler-carousel-loop {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin-top: 2em;
+}
+
+.kuenstler-track-loop {
+  display: flex;
+  width: max-content;
+  animation: scrollLoop 20s linear infinite;
+}
+
+.kuenstler-track-loop img {
+  width: calc(100vw / 3); /* genau 3 sichtbar */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1em;
+  margin: 0 0.5em;
+}
+
+/* Optional: Pause bei Hover */
+.kuenstler-carousel-loop:hover .kuenstler-track-loop {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-calc((100vw / 3 + 1em) * 5)); /* 5 echte Bilder */
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 90%;
+  margin: 2em auto;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-window {
+  overflow: hidden;
+  width: calc(250px * 3 + 1em * 2); /* 3 Bilder + Paddings */
+  margin: 0 auto;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: max-content;
+}
+
+
+.carousel-track img {
+  width: 250px;
+  flex: 0 0 auto;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 1em;
+  margin: 0 0.5em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.carousel-track img.active {
+  border: 3px solid #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+
+
+
+
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 2em;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 0.5em;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: #d4af37;
+}
+
+#ueber.section {
+  height: 100vh; /* erzwingt volle Bildschirmhöhe */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 2em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 2em 1em;
+  }
+
+  .hero-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: auto;
+  }
+
+  .hero-box {
+    height: auto;
+    clip-path: none !important;
+  }
+
+  /* Nur Bild 1 (oberstes) – oben abgeschrägt */
+  .hero-box:nth-child(1) {
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%) !important;
+  }
+
+  /* Nur Bild 3 (unterstes) – unten abgeschrägt */
+  .hero-box:nth-child(3) {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%) !important;
+  }
+}
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wurzeltische vom Künstler</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+</head>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<body>
+
+<div class="branding">
+  <img src="img/logo-icon.png" alt="Logo" class="logo">
+  <span class="firmenname">M. Spickermann</span>
+</div>
+
+<nav class="scroll-nav">
+  <a href="#werkstatt" title="Werkstatt"></a>
+  <a href="#ueber" title="Team"></a>
+  <a href="#galerie" title="Projekte"></a>
+  <a href="#kontakt" title="Kontakt"></a>
+</nav>
+
+
+<div id="logo-loader">
+  <div class="loader-wrapper">
+    <svg class="loader-ring" viewBox="0 0 120 120">
+      <circle class="ring-bg" cx="60" cy="60" r="54"/>
+      <circle class="ring-progress" cx="60" cy="60" r="54"/>
+    </svg>
+    <img src="img/logo-icon.png" alt="Logo" class="loader-logo" />
+  </div>
+</div>
+
+
+
+<header class="hero">
+  <div class="hero-gallery">
+    <a href="#werkstatt" class="hero-box">
+      <img src="img/werkstatt.jpg" alt="Werkstatt" />
+      <span class="overlay-text">Werkstatt</span>
+      
+    </a>
+    <a href="#ueber" class="hero-box">
+      <img src="img/team.jpg" alt="Team" />
+      <span class="overlay-text">Team</span>
+    </a>
+    <a href="#galerie" class="hero-box">
+      <img src="img/projekte.jpg" alt="Projekte" />
+      <span class="overlay-text">Projekte</span>
+    </a>
+  </div>
+</header>
+
+<section id="werkstatt" class="section reveal">
+  <div class="slider-overlay-text">
+  <h3>Unser Herz schlägt für Holz</h3>
+  <p>Mit über 20 Jahren Erfahrung – Handarbeit vom Künstler-Team</p>
+</div>
+
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <img src="img/werkstatt1.jpg" alt="Werkstatt 1" class="slide active" />
+      <img src="img/werkstatt2.jpg" alt="Werkstatt 2" class="slide" />
+      <img src="img/werkstatt3.jpg" alt="Werkstatt 3" class="slide" />
+      <img src="img/werkstatt4.jpg" alt="Werkstatt 4" class="slide" />
+    </div>
+    <div class="slider-nav">
+    <button class="nav-dot active" data-index="0" aria-label="Bild 1 auswählen"></button>
+    <button class="nav-dot" data-index="1" aria-label="Bild 2 auswählen"></button>
+    <button class="nav-dot" data-index="2" aria-label="Bild 3 auswählen"></button>
+    <button class="nav-dot" data-index="3" aria-label="Bild 4 auswählen"></button>
+    </div>
+
+  </div>
+</section>
+
+<section id="ueber" class="section reveal">
+  <h2>Über den Künstler</h2>
+  <p>Mit Leidenschaft und Respekt vor der Natur fertige ich einzigartige Wurzeltische – jedes Stück ein Unikat.</p>
+
+  <div class="kuenstler-preview" id="kuenstler-preview">
+    <img src="img/kuenstler1.jpg" alt="Großansicht" />
+  </div>
+
+<div class="carousel-wrapper">
+  <button class="carousel-btn left" aria-label="Zurück">‹</button>
+  <div class="carousel-window" id="carousel-window">
+    <div class="carousel-track" id="carousel-track">
+        <img src="img/kuenstler1.jpg" alt="1" />
+        <img src="img/kuenstler3.jpg" alt="2" />
+        <img src="img/kuenstler1.jpg" alt="3" />
+        <img src="img/kuenstler3.jpg" alt="4" />
+        <img src="img/kuenstler1.jpg" alt="5" />
+    </div>
+  </div>
+  <button class="carousel-btn right" aria-label="Weiter">›</button>
+</div>
+</section>
+
+
+
+
+
+
+
+
+<section id="galerie" class="section reveal">
+  <h2>Galerie</h2>
+  <p>Klicken Sie auf ein Bild, um weitere Ansichten dieses Tisches zu sehen.</p>
+  <div class="grid gallery">
+
+<!-- Tisch 1 – Sichtbares Bild -->
+<div class="gallery-item-wrapper">
+  <a href="img/tisch1.jpg" data-lightbox="tisch1" data-title="Wurzeltisch 1">
+    <img src="img/tisch1.jpg" alt="Wurzeltisch 1" />
+  </a>
+  <div class="gallery-caption">Wurzeltisch 1</div>
+</div>
+
+
+<!-- Weitere Bilder von Tisch 1 -->
+<a href="img/tisch3.jpg" data-lightbox="tisch1" data-title="Wurzeltisch 1 – Detailansicht" class="lightbox-hidden"></a>
+<a href="img/tisch2.jpg" data-lightbox="tisch1" data-title="Wurzeltisch 1 – Gesamtansicht" class="lightbox-hidden"></a>
+
+    <!-- Tisch 2 -->
+<!-- Tisch 2 – Sichtbares Bild -->
+<div class="gallery-item-wrapper">
+  <a href="img/tisch2.jpg" data-lightbox="tisch2" data-title="Wurzeltisch 2">
+    <img src="img/tisch2.jpg" alt="Wurzeltisch 2" />
+  </a>
+  <div class="gallery-caption">Wurzeltisch 2</div>
+</div>
+
+
+<!-- Weitere Bilder von Tisch 2 -->
+<a href="img/tisch1.jpg" data-lightbox="tisch2" data-title="Wurzeltisch 2 – Oberfläche" class="lightbox-hidden"></a>
+<a href="img/tisch3.jpg" data-lightbox="tisch2" data-title="Wurzeltisch 2 – Seitliche Ansicht" class="lightbox-hidden"></a>
+
+
+
+<!-- Tisch 3 – Sichtbares Bild -->
+<div class="gallery-item-wrapper">
+  <a href="img/tisch3.jpg" data-lightbox="tisch3" data-title="Wurzeltisch 3">
+    <img src="img/tisch3.jpg" alt="Wurzeltisch 3" />
+  </a>
+  <div class="gallery-caption">Wurzeltisch 3</div>
+</div>
+
+
+<!-- Weitere Bilder von Tisch 3 -->
+<a href="img/tisch3.jpg" data-lightbox="tisch3" data-title="Wurzeltisch 3 – Detailansicht" class="lightbox-hidden"></a>
+<a href="img/tisch2.jpg" data-lightbox="tisch3" data-title="Wurzeltisch 3 – Gesamtansicht" class="lightbox-hidden"></a>
+
+
+
+<!-- Tisch 4 – Sichtbares Bild -->
+<div class="gallery-item-wrapper">
+  <a href="img/tisch3.jpg" data-lightbox="tisch4" data-title="Wurzeltisch 4">
+    <img src="img/tisch3.jpg" alt="Wurzeltisch 4" />
+  </a>
+  <div class="gallery-caption">Wurzeltisch 4</div>
+</div>
+
+
+<!-- Weitere Bilder von Tisch 4 -->
+<a href="img/tisch3.jpg" data-lightbox="tisch1" data-title="Wurzeltisch 4 – Detailansicht" class="lightbox-hidden"></a>
+<a href="img/tisch2.jpg" data-lightbox="tisch1" data-title="Wurzeltisch 4 – Gesamtansicht" class="lightbox-hidden"></a>
+
+
+
+<!-- Tisch 5 – Sichtbares Bild -->
+<div class="gallery-item-wrapper">
+  <a href="img/tisch2.jpg" data-lightbox="tisch5" data-title="Wurzeltisch 5">
+    <img src="img/tisch2.jpg" alt="Wurzeltisch 5" />
+  </a>
+  <div class="gallery-caption">Wurzeltisch 5</div>
+</div>
+
+
+<!-- Weitere Bilder von Tisch 5 -->
+<a href="img/tisch1.jpg" data-lightbox="tisch5" data-title="Wurzeltisch 5 – Detailansicht" class="lightbox-hidden"></a>
+<a href="img/tisch1.jpg" data-lightbox="tisch5" data-title="Wurzeltisch 5 – Gesamtansicht" class="lightbox-hidden"></a>
+
+  </div>
+</section>
+
+
+
+<section id="kontakt" class="section reveal">
+  <h2>Kontakt</h2>
+  <p>Sie möchten ein Unikat oder haben Fragen? Ich freue mich auf Ihre Nachricht.</p>
+  <form class="kontaktformular">
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="E-Mail" required />
+    <textarea placeholder="Nachricht" required></textarea>
+    <button type="submit">Absenden</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Wurzeltisch-Kunst. <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+</footer>
+
+</body>
+</html>

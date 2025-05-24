@@ -676,10 +676,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row; /* Sicherstellen, dass links-rechts-Anordnung */
-  gap: 1em;
-  flex-wrap: nowrap;
 }
+
 
 .carousel-btn {
   position: relative;
@@ -691,7 +689,8 @@ footer {
 
 .carousel-window {
   overflow: hidden;
-  width: calc(250px * 3 + 1em * 2); /* 3 Bilder + Paddings */
+  width: 100%;
+  max-width: calc(250px * 3 + 1em * 2); /* 3 Bilder + Paddings */
   margin: 0 auto;
 }
 
@@ -740,6 +739,23 @@ footer {
 .carousel-btn:hover {
   background: #d4af37;
 }
+
+
+.carousel-btn.left,
+.carousel-btn.right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
 
 #ueber.section {
   height: 100vh; /* erzwingt volle Bildschirmhöhe */

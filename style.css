@@ -449,12 +449,14 @@ footer {
 
 
 .slider-container {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
 }
+
 
 
 .slider {
@@ -479,17 +481,19 @@ footer {
 
 
 .slider-nav {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   gap: 1em;
-  padding: 1em;
-  background: transparent;
+  z-index: 10;
 }
 
 
 .nav-dot {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #444;
   border: none;
@@ -833,8 +837,13 @@ footer {
   }
 
   .nav-dot {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-nav {
+    bottom: 1.5em; /* etwas höher, damit Platz bleibt */
+    gap: 1.5em;
   }
   .kuenstler-preview {
     flex: 0 0 35%;

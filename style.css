@@ -147,6 +147,19 @@ a {
   transform: scale(1.03);
 }
 
+/* Werkstatt */
+
+#werkstatt.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
 /* Linkes großes Bild */
 .hero-box:nth-child(1) {
   grid-row: 1 / span 2;
@@ -436,20 +449,17 @@ footer {
 
 
 .slider-container {
-  max-width: 100%;
-  max-height: 80vh; /* auf 80% der Fensterhöhe begrenzen */
-  aspect-ratio: 16 / 9; /* gleichmäßiges Seitenverhältnis */
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 1em;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
+
 
 .slider {
   position: relative;
-  flex: 1; /* nimmt verfügbaren Platz ein */
+  flex: 1;
 }
 
 .slide {
@@ -460,8 +470,6 @@ footer {
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease;
-  z-index: 0;
-  border-radius: 1em;
 }
 
 .slide.active {
@@ -469,13 +477,15 @@ footer {
   z-index: 1;
 }
 
+
 .slider-nav {
   display: flex;
   justify-content: center;
   gap: 1em;
-  padding: 1em 0;
-  background: #111;
+  padding: 1em;
+  background: transparent;
 }
+
 
 .nav-dot {
   width: 40px;
@@ -505,16 +515,16 @@ footer {
   position: absolute;
   top: 2em;
   left: 2em;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
   padding: 1em 1.5em;
   border-radius: 1em;
   z-index: 5;
   max-width: 300px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   font-family: serif;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
 }
+
 
 .slider-overlay-text h3 {
   margin: 0 0 0.5em;
@@ -530,26 +540,23 @@ footer {
 
 
 .kuenstler-preview {
-  flex-grow: 1;
-  min-height: 400px;       /* damit sie sichtbar größer wird */
-  max-height: 100%;        /* niemals größer als der Rest */
+  flex: 0 0 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 1em;
-  padding: 1em;
+  padding: 0.5em;
 }
-
 
 .kuenstler-preview img {
   max-height: 100%;
-  max-width: 100%;
+  width: auto;
   object-fit: contain;
   border-radius: 1em;
-  transition: transform 0.3s ease;
 }
+
+
+
 
 
 
@@ -672,11 +679,16 @@ footer {
 }
 
 .carousel-wrapper {
-  position: relative;
+  flex: 0 0 45%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
+
+
+
 
 
 .carousel-btn {
@@ -758,15 +770,24 @@ footer {
 
 
 #ueber.section {
-  height: 100vh; /* erzwingt volle Bildschirmhöhe */
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1em;
-  padding: 2em;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
 }
+
+
+#ueber h2,
+#ueber p {
+  margin: 1em;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+
+
 
 *, *:focus {
   -webkit-tap-highlight-color: transparent;
@@ -805,7 +826,30 @@ footer {
   }
 
   .slider-overlay-text {
-    display: none;
+    font-size: 0.9em;
+    max-width: 80%;
+    top: 1em;
+    left: 1em;
+  }
+
+  .nav-dot {
+    width: 20px;
+    height: 20px;
+  }
+  .kuenstler-preview {
+    flex: 0 0 35%;
+  }
+
+  .carousel-wrapper {
+    flex: 0 0 50%;
+  }
+
+  .carousel-track img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .carousel-window {
+    max-width: 100%;
   }
 }
-

@@ -742,6 +742,9 @@ footer {
   overflow: hidden;
 }
 
+*, *:focus {
+  -webkit-tap-highlight-color: transparent;
+}
 
 
 
